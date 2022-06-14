@@ -22,12 +22,35 @@ module.exports = [
       {
         type: 'input',
         name: 'contribution',
-        message: 'How can someone contribute to this project?'
+        message: 'Please list contributors if any.'
       },
       {
         type: 'input',
         name: 'test',
         message: 'How can someone test this project?',
+      },
+      {
+        type: 'list',
+        name: 'license',
+        message: 'Chose a license for this project',
+        choises: [
+            'Apache',
+            'Academic',
+            'GNU',
+            'ISC',
+            'MIT',
+            'Mozilla',
+        ]
+      },
+      {
+        type: 'input',
+        name: 'github',
+        message: 'What is your GitHub username?',
+      },
+      {
+        type: 'input',
+        name: 'email',
+        message: 'What is your email?'
       }
 
     ];
