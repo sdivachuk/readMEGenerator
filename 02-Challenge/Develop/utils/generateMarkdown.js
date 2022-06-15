@@ -1,26 +1,33 @@
-// // TODO: Create a function that returns a license badge based on which license is passed in
-// // If there is no license, return an empty string
-// function renderLicenseBadge(license) {}
+// Creates a function that returns a license badge based on which license is passed in
+const fs = require('fs');
 
-// // TODO: Create a function that returns the license link
-// // If there is no license, return an empty string
-// function renderLicenseLink(license) {}
-
-// // TODO: Create a function that returns the license section of README
-// // If there is no license, return an empty string
-// function renderLicenseSection(license) {}
+const renderLicenseBadge = (licenseType) => {
+  let color;
+  if (licenseType === "MPL") color = "red";
+  if (licenseType === "GPL") color = "purple";
+  if (licenseType === "Apache") color = "green";
+  if (licenseType === "MIT") color = "blue";
+  if (licenseType === "CC") color = "gray";
+  if (licenseType === "BSD") color = "goldenrod";
+ 
+  return ( 
+    `
+![${licenseType}](https://img.shields.io/badge/license-${licenseType}-${color})
+     ` 
+  );
+};
 
 //function to generate markdown for README
-function generateMarkdown(data) {
-  return`
-  <h1 align="center"> # ${data.title} </h1>
+const generateMarkdown = (answers) => {
+  const template = (`
+# ${answers.title} 
 
-  ![Github licence](http://img.shields.io/badge/license-${data.license}-blue.svg)
-
-  ## Description 
-  ${data.description}
   
-  ## Table of Contents
+
+## Description 
+  ${answers.description}
+  
+## Table of Contents
   * [Installation](#installation)
   * [Usage](#usage)
   * [License](#license)
@@ -28,20 +35,29 @@ function generateMarkdown(data) {
   * [Tests](#tests)
   * [Questions](#questions)
   
-  ## Installation 
-  ${data.install}
-  ## Usage 
-  ${data.usage}
-  ## License 
-  This project is license under ${data.license}
-  ## Contributing 
-  ${data.contributors}
-  ## Tests
-  ${data.test}
-  ## Questions
-  For any questions about this project, contact me at ${data.email}. 
-  You can find my projects at https://github.com/${data.github}.
-`;
+## Installation 
+  ${answers.installation}
+
+## Usage 
+  ${answers.usage}
+
+## License 
+  This project is license under ${answers.license}
+${renderLicenseBadge(answers.license)}
+  
+## Contributing 
+  ${answers.contribution}
+
+## Tests
+  ${answers.test}
+
+## Questions
+For any questions about this project, contact me at ${answers.email}. 
+You can find my projects at https://github.com/${answers.github}.
+`);
+  fs.writeFileSync('./output/README.md', template);
+  console.log('README CREATED');
+  process.exit();
 }
 
-module.exports = generateMarkdown;
+module.exports = { generateMarkdown };

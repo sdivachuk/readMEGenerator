@@ -7,7 +7,7 @@ module.exports = [
     {
         type: 'input', 
         name: 'description',
-        message: 'Write a description of the project',
+        message: 'Write a description of the project ',
       },
       {
         type: 'input', 
@@ -30,16 +30,17 @@ module.exports = [
         message: 'How can someone test this project?',
       },
       {
-        type: 'list',
+        type: 'rawlist',
         name: 'license',
-        message: 'Chose a license for this project',
-        choises: [
-            'Apache',
-            'Academic',
-            'GNU',
-            'ISC',
-            'MIT',
-            'Mozilla',
+        message: 'What license was this created with?',
+        choices: [
+            "MPL",
+            "GPL",
+            "Apache",
+            "MIT",
+            "CC",
+            "BSD",
+            "none",
         ]
       },
       {
