@@ -16,7 +16,7 @@ Then you will be prompted to answer questions about what you want to add to your
 Once that is complete, the program will generate a README into the output folder 
 
 ## Visuals
-- [video](https://drive.google.com/file/d/11H_41gNBZd6l_BgMh1eUHNTLxw6-F4KE/view)
+- [video](https://drive.google.com/file/d/15DgH752ap2-BMTvTOeA3urwHP2hiTN-R/view)
 
 ## Resources
 - [Live Site](https://sdivachuk.github.io/readMEGenerator/)
